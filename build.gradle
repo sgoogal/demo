@@ -26,9 +26,9 @@ uploadArchives {
              repository(url: "http://localhost:8081/repository/maven-releases/") {
              authentication(userName: "admin", password: "admin123")
 }
-             pom.version = "1.0-srikanth"
-             pom.artifactId = "simple-project"
-             pom.groupId = "com.example"
+             pom.version = "1.0"
+             pom.artifactId = "PMI"
+             pom.groupId = "com.rakten"
        }
     }
 }
