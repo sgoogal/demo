@@ -1,0 +1,34 @@
+apply plugin: 'application'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+mainClassName = 'demoeins.HelloGradle'
+
+repositories {
+    maven {
+          url "http://localhost:8081/nexus/"
+    }
+}
+
+
+jar {
+  manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'demoeins.HelloGradle'
+    )
+  }
+}
+
+uploadArchives {
+    repositories {
+       mavenDeployer {
+             repository(url: "http://localhost:8081/repository/maven-releases/") {
+             authentication(userName: "admin", password: "admin123")
+}
+             pom.version = "1.0-srikanth"
+             pom.artifactId = "simple-project"
+             pom.groupId = "com.example"
+       }
+    }
+}
