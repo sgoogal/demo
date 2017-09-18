@@ -14,7 +14,6 @@ repositories {
 jar {
   manifest {
     attributes(
-      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
       'Main-Class': 'demoeins.HelloGradle'
     )
   }
@@ -26,7 +25,7 @@ uploadArchives {
              repository(url: "http://localhost:8081/repository/maven-releases/") {
              authentication(userName: "admin", password: "admin123")
 }
-             pom.version = "1.0"
+             pom.version = "3.0"
              pom.artifactId = "PMI"
              pom.groupId = "com.rakten"
        }
